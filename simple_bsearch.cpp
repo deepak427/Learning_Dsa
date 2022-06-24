@@ -2,25 +2,27 @@
 
 using namespace std;
 
-int binarysearch(int arr[],int low,int high,int target){
-    int mid = (low+high)/2;
-    if(arr[mid]==target){
-            return mid;
+int binarysearch(int arry[],int low,int high,int target){
+    int mid=(low+high)/2;
+    
+    if(arry[mid]==target){
+        return mid;
     }
- 
-    else if(arr[mid]>target){
-        return binarysearch(arr,low,mid,target);
+    
+    if(target>arry[mid]){
+        return binarysearch(arry,mid+1,high,target);
     }
-    else{
-        return binarysearch(arr,mid+1,high,target);
+    
+    if(target<arry[mid]){
+        return binarysearch(arry,low,mid-1,target);
     }
+    
 }
 
 int main()
 {
-    cout<<"Hello World";
     int arry[]={0,1,2,3,4};
-    int index = binarysearch(arry,0,4,2);
+    int index = binarysearch(arry,0,4,4);
     cout<<"index is: "<<index;
 
     return 0;
